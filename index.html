@@ -469,7 +469,7 @@
        INTRO SEAL SCREEN
   ============================================================ -->
   <div class="intro-screen" id="introScreen">
-    <video class="intro-video" id="introVideo" playsinline webkit-playsinline preload="auto">
+    <video class="intro-video" id="introVideo" playsinline webkit-playsinline preload="auto" muted>
       <source src="assets/intro-video.mp4" type="video/mp4">
     </video>
     <div class="intro-tap" id="introTap">
@@ -729,6 +729,7 @@ introScreen.addEventListener('click', ()=>{
   if(introStarted) return;
   introStarted = true;
   introTap.style.display = 'none';
+  introVideo.muted = false;
   const playPromise = introVideo.play();
   if(playPromise && playPromise.catch) playPromise.catch(openInvitation);
 });
